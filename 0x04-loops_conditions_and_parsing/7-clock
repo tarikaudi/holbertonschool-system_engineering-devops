@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# its a CLOCK
+
+c=0
+
+while ((c<=12))
+do
+	echo "Hour: $c"
+	d=1
+	while ((d<=59))
+	do
+		echo "$d"
+		((d++))
+	done
+	((c++))
+done

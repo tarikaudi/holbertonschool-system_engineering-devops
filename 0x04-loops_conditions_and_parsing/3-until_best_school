@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# 10 times again
+
+c=0
+until ((c>=10))
+do  
+   echo "Best School"
+   ((c++))
+done

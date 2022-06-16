@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# 10 times with wile
+
+let c=0
+while ((c<10))
+do  
+   echo "Holberton School"
+   ((c++))
+done

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# comment for the check
+
+netstat -lp

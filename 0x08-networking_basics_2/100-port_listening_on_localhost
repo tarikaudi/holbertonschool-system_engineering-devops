@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#comment for c
+
+nc -l 98

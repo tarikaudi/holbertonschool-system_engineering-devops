@@ -1,6 +1,6 @@
 # create with ppp
 
 package { 'flask':
-  ensure   => installed,
+  ensure => installed,
   provider => 'pip3'
 }

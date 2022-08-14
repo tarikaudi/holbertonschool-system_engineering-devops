@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# generate key
+ssh-keygen -b 4096 -f betty -t rsa

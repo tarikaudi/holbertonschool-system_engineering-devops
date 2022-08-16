@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#command to debug wbstack apache
+
+sudo service apache2 restart

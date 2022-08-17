@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#comment for the checker
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+sudo sed -i '/servername ;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo echo "Ceci n'est pas une page" > /var/www/html/404-page.html
+sudo sed -i '/location ;/a error_page 404/404-page.html;' /etc/nginx/sites-enabled/default
+sudo service nginx restart

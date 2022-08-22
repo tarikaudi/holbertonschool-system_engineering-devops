@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# comment for the checker
+
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get -y install haproxy
+sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
+
+echo  "
+frontend haproxy-main
+        bind *:80
+        balance roundrobin
+backend apache_webservers
+        server 4370-web-01 54.158.0.253:80 check
+        server 4370-web-02 3.95.238.142:80 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart

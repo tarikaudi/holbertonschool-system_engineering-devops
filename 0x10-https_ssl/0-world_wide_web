@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # comment fo the checker
 
+# comment for the func
 func()
 {
     SUB_DOMAIN="$2"

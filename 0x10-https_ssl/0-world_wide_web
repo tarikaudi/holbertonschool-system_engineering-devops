@@ -9,7 +9,7 @@ func ()
     INFO="$(dig "$DOMAIN_COMPLETE" | grep 'ANSWER SECTION' -A1 | awk 'NR==2')"
     IP=$(echo "$INFO" | awk '{print $5}')
     RECORD=$(echo "$INFO" | awk '{print $4}')
-    echo The subdomain "$SUB_DOMAIN" is "$RECORD" record and points to "$IP"
+    echo The subdomain "$SUB_DOMAIN" is a "$RECORD" record and points to "$IP"
 }
 
 

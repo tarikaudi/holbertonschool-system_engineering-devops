@@ -1,26 +1,25 @@
 #!/usr/bin/python3
 """comment for the checker"""
 
+import csv
 import requests
 from sys import argv
 
 if __name__ == "__main__":
 
-        USER_ID = 0
-        USERNAME = ""
-        TASK_COMPLETED_STATUS = ""
-        TASK_TITLE = []
-        id = int(argv[1])
-        r = requests.get('https://jsonplaceholder.typicode.com/todos')
-        users = requests.get('https://jsonplaceholder.typicode.com/users')
+    id = int(argv[1])
+    r = requests.get('https://jsonplaceholder.typicode.com/todos').json()
+    users = requests.get('https://jsonplaceholder.typicode.com/users').json()
+    filename = argv[1] + ".csv"
 
-        for user in users.json():
-                if user.get("id") == id:
-                        USER_ID = user.get("id")
-                        USERNAME = user.get("username")
-                        print("aa", USER_ID, USERNAME)
-                        break
+    for user in users:
+        if user.get("id") == id:
+            username = user.get("username")
+            break
 
-        for tasks in r.json():
+    with open(filename, mode='w') as f:
+        w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+        for tasks in r:
             if tasks.get("userId") == id:
-                    TASK_COMPLETED_STATUS
+                w.writerow([argv[1], username, tasks.get("completed"),
+                           tasks.get("title")])

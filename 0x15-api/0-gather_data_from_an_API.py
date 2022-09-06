@@ -22,11 +22,11 @@ if __name__ == "__main__":
         for tasks in r.json():
             if tasks.get("userId") == id:
                     TOTAL_NUMBER_OF_TASKS += 1
-                    if tasks.get("completed") == True:
+                    if tasks.get("completed") is True:
                             NUMBER_OF_DONE_TASKS += 1
                             TASK_TITLE.append(tasks.get("title"))
 
-        print ("Employee {} is done with tasks({}/{})".format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
-        
+        print("Employee {} is done with tasks({}/{})".format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+
         for tasks in TASK_TITLE:
             print("\t {}".format(tasks))

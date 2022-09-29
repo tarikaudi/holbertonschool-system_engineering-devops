@@ -1,7 +1,6 @@
-{ 'fix--for-nginx':
-  command => 'sed -i "s/15/4096/" /etc/default/nginx',
-  path    => '/usr/local/bin/:/bin/'
-} ->
+exec { 'fix--for-nginx':
+  command => "/bin/sed -i /etc/default/nginx -e 's/15/3000/'"
+}
 
 exec { 'nginx-restart':
   command => 'nginx restart',
